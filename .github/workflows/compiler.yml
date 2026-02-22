@@ -21,5 +21,7 @@ jobs:
         with:
           artifacts: "source/commerce"
           body: "This is a release of the commerce file."
-          commit: main
-          tag: current
+          tag: release
+          allowUpdates: true
+          replacesArtifacts: true
+          updateOnlyUnreleased: false
