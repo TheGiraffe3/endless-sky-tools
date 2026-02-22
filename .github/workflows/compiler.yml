@@ -1,0 +1,23 @@
+name: Compiler
+
+on:
+  push:
+
+concurrency:
+  group: ${{ github.ref }}-${{ github.workflow }}-${{ github.event_name }}
+  cancel-in-progress: true
+
+jobs:
+  build-commerce-file:
+    name: Build Commerce File
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run Commands
+        run: |
+          cd source
+          g++ --std=c++11 -o commerce commerce.cpp
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "source/commerce"
+          body: "This is a release of the commerce file."
