@@ -33,7 +33,7 @@ jobs:
       - name: Run Commands
         run: |
           cd source
-          g++ --std=c++11 -o commerce-windows commerce.cpp
+          g++ --std=c++11 -o commerce-windows commerce.cpp -static
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "source/commerce-windows.exe"
