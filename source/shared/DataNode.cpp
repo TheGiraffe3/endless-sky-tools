@@ -18,6 +18,7 @@ this program. If not, see <https://www.gnu.org/licenses/>.
 #include <algorithm>
 #include <cctype>
 #include <cmath>
+#include <cstdint>
 #include <iostream>
 
 using namespace std;
