@@ -36,7 +36,7 @@ jobs:
           g++ --std=c++11 -o commerce-windows commerce.cpp
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "source/commerce-windows"
+          artifacts: "source/commerce-windows.exe"
           body: "This is a release of the commerce file."
           tag: release
           allowUpdates: true
