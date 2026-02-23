@@ -23,7 +23,7 @@ jobs:
           body: "This is a release of the commerce file."
           tag: release
           allowUpdates: true
-          replacesArtifacts: true
+          replacesArtifacts: false
           updateOnlyUnreleased: false
   build-commerce-file-windows:
     name: Build Commerce File
@@ -40,5 +40,5 @@ jobs:
           body: "This is a release of the commerce file."
           tag: release
           allowUpdates: true
-          replacesArtifacts: true
+          replacesArtifacts: false
           updateOnlyUnreleased: false
