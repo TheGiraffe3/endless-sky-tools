@@ -42,11 +42,7 @@ DataFile::DataFile(istream &in)
 
 void DataFile::Load(const string &path)
 {
-#if defined _WIN32
-	FILE *file = _wfopen(ToUTF16(path).c_str(), L"rb");
-#else
 	FILE *file = fopen(path.c_str(), "rb");
-#endif
 	string data;
 	if(!file)
 		return;
