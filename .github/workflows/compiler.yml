@@ -8,7 +8,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-commerce-file:
+  build-commerce-file-unix:
     name: Build Commerce File
     runs-on: ubuntu-latest
     steps:
@@ -16,10 +16,27 @@ jobs:
       - name: Run Commands
         run: |
           cd source
-          g++ --std=c++11 -o commerce commerce.cpp
+          g++ --std=c++11 -o commerce-unix commerce.cpp
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "source/commerce"
+          artifacts: "source/commerce-unix"
+          body: "This is a release of the commerce file."
+          tag: release
+          allowUpdates: true
+          replacesArtifacts: true
+          updateOnlyUnreleased: false
+  build-commerce-file-windows:
+    name: Build Commerce File
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v6
+      - name: Run Commands
+        run: |
+          cd source
+          g++ --std=c++11 -o commerce-windows commerce.cpp
+      - uses: ncipollo/release-action@v1
+        with:
+          artifacts: "source/commerce-windows"
           body: "This is a release of the commerce file."
           tag: release
           allowUpdates: true
